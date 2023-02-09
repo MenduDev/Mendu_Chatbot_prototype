@@ -2,4 +2,12 @@
 # mentalHealth_Chatbot
 <h3> an AI therapist, based on GPT3, fine-tuned with custom data. </h3>
 
-Table of content
+## Table of content
+<ul>
+  <li>About the App(#About the app)</li>
+  <li>Checklist</li>
+  <li>Technology</li>
+  <li>local Setup / webserver</li>
+  
+# About the app
+  
