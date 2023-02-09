@@ -9,12 +9,12 @@
 * [Technology](#Technology)
 * [local Setup / webserver](#setup)
   
-# About the app
+## About the app
+ 
   
+## Checklist
   
-# Checklist
+## Technology
   
-# Technology
-  
-# Setup
+## Setup
   
