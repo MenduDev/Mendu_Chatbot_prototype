@@ -1,0 +1,6 @@
+openai==0.26.4
+python-dotenv==0.21.1
+streamlit==1.17.0
+streamlit_chat==0.0.2.1
+transformers==4.25.1
+torch==1.13.1
