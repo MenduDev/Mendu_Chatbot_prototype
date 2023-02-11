@@ -1,0 +1,6 @@
+{
+    "sonarlint.connectedMode.project": {
+        "connectionId": "lsacy",
+        "projectKey": "Lsacy_mentalHealth_Chatbot"
+    }
+}
