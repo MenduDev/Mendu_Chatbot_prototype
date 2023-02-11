@@ -1,3 +1,4 @@
+"""OpenAI GPT-3 Chatbot with Streamlit"""
 import openai
 import streamlit as st
 from streamlit_chat import message
@@ -5,22 +6,28 @@ from transformers import pipeline
 
 
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
-sentiment_task = pipeline("sentiment-analysis", model='cardiffnlp/twitter-roberta-base-sentiment-latest', tokenizer='cardiffnlp/twitter-roberta-base-sentiment-latest')
+sentiment_task = pipeline("sentiment-analysis",
+                            model='cardiffnlp/twitter-roberta-base-sentiment-latest',
+                            tokenizer='cardiffnlp/twitter-roberta-base-sentiment-latest')
+
 openai.api_key = st.secrets["openai_api_key"]
 
 completion = openai.Completion()
 
-start_prompt = '[Instruction] Act as a friendly, compasionate, insightful, and empathetic AI therapist named Joy. Joy listens and offers advices. End the conversation when the patient wishes to.'
-start_message = 'I am Joy, your AI therapist. How are you feeling today?'
-start_sequence = "\nJoy:"
-restart_sequence = "\n\nPatient:"
+START_PROMPT = '[Instruction] Act as a friendly, compasionate, insightful, and empathetic AI \
+                therapist named Joy. Joy listens and offers advices. \
+                End the conversation when the patient wishes to.'
+START_MESSAGE = 'I am Joy, your AI therapist. How are you feeling today?'
+START_SEQUENCE = "\nJoy:"
+RESTART_SEQUENCE = "\n\nPatient:"
 
 def ask(question: str, chat_log: str, model='text-davinci-003', temp=0.9) -> (str, str):
-    ''' funtion takes a input string and the preview chat_log, returns the model's repsonse/answer and the dialog as log
-    by using the preview chat_log, gold fish memory effect can be prevented,
-    the chat_log is used to summarize and analyze the sentiment of the user's input '''
-    
-    prompt = f'{chat_log}{restart_sequence} {question}{start_sequence}'
+    ''' funtion takes a input string and the preview chat_log, 
+        returns the model's repsonse/answer and the dialog
+        by using the preview chat_log, gold fish memory effect can be prevented,
+        the chat_log is used to summarize and analyze the sentiment of the user's input '''
+
+    prompt = f'{chat_log}{RESTART_SEQUENCE} {question}{START_SEQUENCE}'
     response = completion.create(
         prompt = prompt,
         model = model,
@@ -28,13 +35,13 @@ def ask(question: str, chat_log: str, model='text-davinci-003', temp=0.9) -> (st
         temperature = temp, #the higher the more creative
         frequency_penalty = 0.9, #prevents word repetition, larger -> higher penalty
         presence_penalty = 1, #prevents topic repetition, larger -> higher penalty
-        top_p =1, 
+        top_p =1,
         best_of=1,
         max_tokens=170,
         )
 
     answer = response.choices[0].text.strip()
-    log = f'{restart_sequence}{question}{start_sequence}{answer}'
+    log = f'{RESTART_SEQUENCE}{question}{START_SEQUENCE}{answer}'
     return str(answer), str(log)
 
 def clean_chat_log(chat_log: list) -> str:
@@ -64,20 +71,25 @@ def analyze_sentiment(user_input: list) -> str:
     return sentiment
 
 def remove_backslash(chat_log: list) -> list:
+    ''' removes the backslash from the chat log '''
+
     chat_log = [i.replace('\n', ' ') for i in chat_log]
     return chat_log
 
 
 
 def main():
+    ''' main function '''
+
     st.title("Chat with Joy - the AI therapist!")
     col1, col2 = st.columns(2)
     temp = col1.slider("Bot-Creativeness", 0.0, 1.0, 0.9, 0.1)
-    model = col2.selectbox("Model", ["text-davinci-003", "text-curie-001", "curie:ft-personal-2023-02-03-17-06-53"])
+    model = col2.selectbox("Model", ["text-davinci-003",
+    "text-curie-001", "curie:ft-personal-2023-02-03-17-06-53"])
 
     if 'generated' not in st.session_state:
-        st.session_state['generated'] = [start_message]
-        
+        st.session_state['generated'] = [START_MESSAGE]
+
     if 'past' not in st.session_state:
         st.session_state['past'] = []
 
@@ -85,8 +97,8 @@ def main():
         st.session_state['summary'] = []
 
     if 'chat_log' not in st.session_state:
-        st.session_state['chat_log'] = [start_prompt+start_sequence+start_message]
-        
+        st.session_state['chat_log'] = [START_PROMPT+START_SEQUENCE+START_MESSAGE]
+
 
     if len(st.session_state['generated']) > 2:
         if st.button("Clear and summerize", key='clear'):
@@ -96,11 +108,11 @@ def main():
             user_sentiment = st.session_state['past']
             user_sentiment = remove_backslash(user_sentiment)
             st.write(analyze_sentiment(user_sentiment))
-            st.session_state['generated'] = [start_message]
+            st.session_state['generated'] = [START_MESSAGE]
             st.session_state['past'] = []
-            st.session_state['chat_log'] = [start_prompt+start_sequence+start_message]
+            st.session_state['chat_log'] = [START_PROMPT+START_SEQUENCE+START_MESSAGE]
             st.session_state['summary'] = []
-        
+
     user_input=st.text_input("You:",key='input')
 
     if user_input:
@@ -118,8 +130,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-        
-
-
-        
