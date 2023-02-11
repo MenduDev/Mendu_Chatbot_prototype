@@ -1,7 +1,0 @@
-data/
-.env
-openai_api_key.txt
-Dockerfile
-test.ipynb
-stream_app_minimum.py
-joy.py
