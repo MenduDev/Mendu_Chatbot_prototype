@@ -13,10 +13,10 @@ Personal Clean Code Cheat Sheet (Leonhard Liu):
 
 Demonstration of usage with my own code:
 
-1. meaningful variable names: chat_log, api_key, question etc. 
-2. short function which do one thing: the remove_backslash() function is short.
+1. meaningful variable names: [api_key](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L15), [START_PROMPT](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L19) etc. 
+2. short function which do one thing: the [`remove_backslash()`](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L76) function is short.
    It only removes backslash in a list of strings.
-3. Use doctrings: Every function has its own docstring.
-4. Avoid deeply nested loops and conditionals: There is no deeply nested loops.
-   In my jupyter notebooks for data wrangling, list comprehensions are often used.
-5. write unit test: unit testing has been written and executed.
+3. Use doctrings: Every function has its own docstring. [example](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L27-L30)
+4. Avoid deeply nested loops and conditionals: There is no deeply nested loops. Maximum 2 layers.
+   [list comprehensions](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L79) are also used.
+5. write unit test: [unit testing](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/test_sample.py) has been written and executed.
