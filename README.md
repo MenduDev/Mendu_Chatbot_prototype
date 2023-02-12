@@ -65,7 +65,6 @@ Using PlantUML and LucidChart:
 * [UseCase](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/uml/UseCase.png)
 * [flowDiagram](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/uml/flowDiagram.png)
 * [sequenceDiagrame](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/uml/sequence.png)
-
 &nbsp;
 
 <b>3. DDD</b>
@@ -87,7 +86,6 @@ Additionally PyLint was used to further checking up the code. Even though Sonarc
 
 please check out [CCC.md](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/CCC.md) for details.
 &nbsp;
-
 
 <b>6. Build Management</b>
 
@@ -111,7 +109,10 @@ Github Action is used for this project. Compared to Jenkins there is no need to 
 
 For demonstration purpose, a test branch with a pull request was created and [successfully merged](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/CICD/githubActionPullRequest.png). 
 
-Next, a [YAML file](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/buildManagement/actionYAML.png) was created for the continuous delivery pipeline. The file states that each time on push or pull_request the pipeline will be restarted. First a ubuntu-latest server with python 3.8 got setup, then all dependencies will be installed, Lint test with flake8 will be executed and finally testing with pytest (with the openAI api key as a secret)will be conducted. The entire [pipeline](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/CICD/BUILD_TEST.png) was successful.
+Next, a [YAML file](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/buildManagement/actionYAML.png) was created for the continuous delivery pipeline. 
+The YAML config-file states that each time on push or pull_request the pipeline will be restarted. First a ubuntu-latest server with python 3.8 got setup, then all dependencies will be installed, Lint test with flake8 will be executed and finally testing with pytest (with the openAI api key as a secret)will be conducted. 
+The entire [pipeline](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/CICD/BUILD_TEST.png) was successful.
+
 &nbsp;
 
 <b>9. IDE-shortcut</b>
@@ -127,6 +128,7 @@ while in Jupyter Notebook mode:
 * `a/b`: add a new block above/below current block
 * `SHIFT + ENTER`: Run current block, jump to the next block
 * `dd`: delete current block 
+
 &nbsp;
 
 <b>10. DSL Demo</b>
@@ -136,6 +138,7 @@ For this project apart from a few basic functions for cleaning and aggregating d
 * For example the usage of hugginface.co transformers library greatly reduced the amount of coding working and made it possible to use strong performing language models. [example](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L10-L13) 
 * The same applies to the openai package for text generation. [example](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L32-L43) 
 * Additionally, the entire interface for the chatbot was also based a domain specific package (Streamlit), which is heavily used by data scientists. Code example can be found [here](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L87-L130) 
+
 &nbsp;
 
 <b>11. Functional Programming</b>
@@ -160,7 +163,7 @@ For this project apart from a few basic functions for cleaning and aggregating d
 ## Setup
 * access the demo version at https://huggingface.co/spaces/lsacy/mentalChat 
 * Running the code on a local machine: 
-register and load a custom [OpenAI](www.openai.com) api key, insert the key at line 7 in streamlit_app.py -> openai.api_key = 'your-api-key'
+register and load a custom [OpenAI](https://www.openai.com) api key, insert the key at line 7 in streamlit_app.py -> openai.api_key = 'your-api-key'
 
 	install dependencies:
 	```
