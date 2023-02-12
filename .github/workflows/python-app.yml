@@ -1,5 +1,3 @@
-# testing doesn't work because no access to api key file.
-
 name: MentalHealth-Chatbot
 
 on:
