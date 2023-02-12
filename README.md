@@ -25,7 +25,7 @@ The result can be previewed at [huggingface.co/spaces/lsacy/mentalChat](https://
 Besides the ability to have a conversation. With the help of two more additional models (Bert based), each conversation can be summarised and evaluated on three sentiment categories (positive, negative, neutral). These information could then be stored in a database and tracked for further analysis.
 
 ## Checklist
-###<b>1. Git</b>
+<b>1. Git</b>
 For an already exiting project, clone -> add file for example add . for all files or add certain file --> always pull before commit/push -> stash if needed -> push in the end
 ```
 	  git clone https://www.Github(anyHostingSerivce).com/User/Repo
@@ -59,7 +59,7 @@ if more than one people working on the same repository, branches are useful to c
 ``` 
 &nbsp;
 
-###<b>2. UML</b>
+<b>2. UML</b>
 
 Using PlantUML and LucidChart:  
 * [UseCase](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/uml/UseCase.png)
