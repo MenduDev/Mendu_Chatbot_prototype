@@ -56,26 +56,33 @@ Using PlantUML and LucidChart:
 [UseCase](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/uml/UseCase.png)
 [flowDiagram](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/uml/flowDiagram.png)
 [sequenceDiagrame](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/uml/sequence.png)
+
 <b>3. DDD</b>
 [DDD](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/ddd/ddd.png) - Dividing the into 3 domains: Core, Support and Miscellaneous. Core Domain are the core functionality perceived by the user. Support domains contains the functions which enable the core functionalities and miscellaneous domain made of subjects, which are required for an operating company.  
+
 <b>4. Metrics</b>
 Two different metrics tools have been applied to this project. The first one is universal and cloud enabled: SonarQube. The second one is a python specific cli tool: PyLint.
 For Sonarcube the .vscode extension [SonarLint](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/metrics/sonarLint.png) was installed and it was checking for inconsistencies while coding. With SonarLint it was very easy to connect to the Sonarqube Cloud, which did a [deep dive](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/metrics/sonarQubeCloud.png) into my code and checked for additional reliability, security, maintainability and duplications.
 Additionally PyLint was used to further checking up the code. Even though Sonarcube didn't find any inconsistencies, PyLint was able to find [small issues](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/metrics/pylint1.png), which got solved after a [few iterations](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/metrics/pylint2.png).
+
 <b>5. Clean Code Development</b>
 please check out [CCC.md](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/README.md) for details.
+
 <b>6. Build Management</b>
 Python is an interpreted language, nothing needs to be compiled so a build management tool seems rather unnecessary. The most used build tool 'setuptools' is used for packaging and publishing on pypi, which is not the intend of this application.
 Nonetheless for this project pyBuilder was installed. Unfortunately after a successful installation I was [not able](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/buildManagement/pyBuilder.png) to properly build something. It sees to be stuck in some sort of directory creation loop, and with a rather small community and last update 3 months ago, I was not able to find a solution.
 So instead of relying on on pyBuilder, I choose to use Github Action for continuously integrated [building and testing](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/buildManagement/actionYAML.png).
+
 <b>7. Unit-Test</b>
 Pytest was used for unit testing purpose. I have build a [simple test](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/test_sample.py) to test two different functions. Both test [have passed](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/unitTest/unitTest.png) locally without any issue.
 After setting up secrets in Github Action as a environment variable, testing in the Github Action pipeline was also [successful](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/unitTest/ActionTest.png).
+
 <b>8. Continuous Delivery</b>
 Github Action is used for this project. Compared to Jenkins there is no need to setup for a local server, which saves resources. Besides, Github Action has a big community with many pipeline templates to choose from. Since I already extensively use Github, using Github Action for CI/CD was the reasonable thing to do.
 For demonstration purpose, a test branch with a pull request was created and [successfully merged](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/CICD/githubActionPullRequest.png).
 Next, a [YAML file](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/buildManagement/actionYAML.png) was created for the continuous delivery pipeline. The file states that each time on push or pull_request the pipeline will be restarted. First a ubuntu-latest server with python 3.8 got setup, then all dependencies will be installed, Lint test with flake8 will be executed and finally testing with pytest (with the openAI api key as a secret)will be conducted.
 The entire [chain of events](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/CICD/BUILD_TEST.png) was successful.
+
 <b>9. IDE-shortcut</b>
 My IDE is vsCode. It is lightweight, fast. It has available many plugin and a very functional terminal. Besides, it integrates Jupyter Notebook very well, which is a must have tool for data scientists.
 Some of my favorite shortcuts are:
@@ -86,16 +93,19 @@ Some of my favorite shortcuts are:
 		`a/b`: add a new block above/below current block
 		`SHIFT + ENTER`: Run current block, jump to the next block
 		`dd`: delete current block
+		
 <b>10. DSL Demo</b>
 For this project apart from a few basic functions for cleaning and aggregating data, I have heavily on domain specific language patterns to get the job done.
-For example the usage of hugginface.co transformers library greatly reduced the amount of coding working and made it possible to use strong performing language models. [example]()
-The same applies to the openai package for text generation. [example]()
-Additionally, the entire interface for the chatbot was also based a domain specific package (Streamlit), which is heavily used by data scientists. Code example can be found [here]().
+For example the usage of hugginface.co transformers library greatly reduced the amount of coding working and made it possible to use strong performing language models. [example](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L10-L13)
+The same applies to the openai package for text generation. [example](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L10-L13)
+Additionally, the entire interface for the chatbot was also based a domain specific package (Streamlit), which is heavily used by data scientists. Code example can be found [here](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L10-L13).
+
 <b>11. Functional Programming</b>
-[`summarize()`]() is a final data structured fucntion because it does not modify or mutate the input 'chat_log' in anyway. The output is solely dependent on the input parameters.
-[remove_backslash()]() is a side effect free function because it also does not modify any state outside of its scope and does not produce any observable effects other than its return value.
-[analyze_sentiment()]() is a higher order function since it takes two other functions function(`clean_chat_log, sentiment_task`) as parameters and returns the function `sentiment_task` as return value.
-[remove_backslash()]() uses an anonymous lambda function.
+[`summarize()`](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L10-L13) is a final data structured fucntion because it does not modify or mutate the input 'chat_log' in anyway. The output is solely dependent on the input parameters.
+[remove_backslash()](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L10-L13) is a side effect free function because it also does not modify any state outside of its scope and does not produce any observable effects other than its return value.
+[analyze_sentiment()](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L10-L13) is a higher order function since it takes two other functions function(`clean_chat_log, sentiment_task`) as parameters and returns the function `sentiment_task` as return value.
+[remove_backslash()](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L10-L13) uses an anonymous lambda function.
+
 ## Technology
 Python 3.8
 Jupyter Notebook for data gathering, data wrangling and fine-tuning upload
