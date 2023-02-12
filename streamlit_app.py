@@ -59,26 +59,25 @@ def clean_chat_log(chat_log: list) -> str:
     chat_log = chat_log.replace('\n', ' ')
     return chat_log
 
-def summarize(chat_log: list) -> str:
+def summarize(chat_log: list, clean_func=clean_chat_log) -> str:
     ''' returns a summary of the chat log '''
 
-    chat_log = clean_chat_log(chat_log)
+    chat_log = clean_func(chat_log)
     summary = summarizer(chat_log, do_sample=False)[0]['summary_text']
     return summary
 
-def analyze_sentiment(user_input: list) -> str:
+def analyze_sentiment(user_input: list, clean_func=clean_chat_log, sentiment_analysis = sentiment_task) -> str:
     ''' returns user sentiment based on the users input'''
 
-    user_input = clean_chat_log(user_input)
+    user_input = clean_func(user_input)
     summary = summarizer(user_input, do_sample=False)[0]['summary_text']
-    sentiment = sentiment_task(summary)
-    return sentiment
+    return sentiment_analysis(summary)
 
 def remove_backslash(chat_log: list) -> list:
     ''' removes the backslash from the chat log '''
 
-    chat_log = [i.replace('\n', ' ') for i in chat_log]
-    return chat_log
+    cleaning = lambda chat_log: [i.replace('\n', ' ') for i in chat_log]
+    return cleaning(chat_log)
 
 
 
