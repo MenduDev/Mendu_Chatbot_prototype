@@ -160,6 +160,7 @@ For this project apart from a few basic functions for cleaning and aggregating d
 ## Setup
 * access the demo version at https://huggingface.co/spaces/lsacy/mentalChat 
 * Running the code on a local machine: 
+
 register and load a custom [OpenAI](www.openai.com) api key, insert the key at line 7 in streamlit_app.py -> openai.api_key = 'your-api-key'
 
 	install dependencies:
