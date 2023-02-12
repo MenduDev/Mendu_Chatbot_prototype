@@ -56,8 +56,8 @@ if more than one people working on the same repository, branches are useful to c
 	  git switch/checkout <main> #switch back to main branch
 	  git merge <newBranch> #to merge main with files from branch <newBranch>
 	  git branch -d <newBranch> #to delete the branch <newBranch>
-``` \
-
+``` 
+\
 <b>2. UML</b>
 
 Using PlantUML and LucidChart:  
@@ -137,11 +137,11 @@ For this project apart from a few basic functions for cleaning and aggregating d
 
 [`summarize()`](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L10-L13) is a final data structured fucntion because it does not modify or mutate the input 'chat_log' in anyway. The output is solely dependent on the input parameters.
 
-[remove_backslash()](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L76-L80) is a side effect free function because it also does not modify any state outside of its scope and does not produce any observable effects other than its return value.
+[`remove_backslash()`](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L76-L80) is a side effect free function because it also does not modify any state outside of its scope and does not produce any observable effects other than its return value.
 
-[analyze_sentiment()](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L69-L74) is a higher order function since it takes two other functions function(`clean_chat_log, sentiment_task`) as parameters and returns the function `sentiment_task` as return value.
+[`analyze_sentiment()`](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L69-L74) is a higher order function since it takes two other functions function(`clean_chat_log, sentiment_task`) as parameters and returns the function `sentiment_task` as return value.
 
-[remove_backslash()](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L76-L80) uses an anonymous lambda function.
+[`remove_backslash()`](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L76-L80) uses an anonymous lambda function.
 
 ## Technology
 * Python 3.8
