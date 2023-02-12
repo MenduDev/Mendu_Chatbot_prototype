@@ -65,11 +65,13 @@ Using PlantUML and LucidChart:
 * [UseCase](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/uml/UseCase.png)
 * [flowDiagram](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/uml/flowDiagram.png)
 * [sequenceDiagrame](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/uml/sequence.png)
+
 &nbsp;
 
 <b>3. DDD</b>
 
 [DDD](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/ddd/ddd.png) - Dividing the into 3 domains: Core, Support and Miscellaneous. Core Domain are the core functionality perceived by the user. Support domains contains the functions which enable the core functionalities and miscellaneous domain made of subjects, which are required for an operating company.  
+
 &nbsp;
 
 <b>4. Metrics</b>
@@ -80,11 +82,13 @@ For Sonarcube the .vscode extension [SonarLint](https://github.com/Lsacy/mentalH
 When integrated with SonarCloud, automatic quality testing was also done when [merging two branches](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/CICD/githubActionPullRequest.png)
 
 Additionally PyLint was used to further checking up the code. Even though Sonarcube didn't find any inconsistencies, PyLint was able to find [small issues](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/metrics/pylint1.png), which got solved after a [few iterations](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/metrics/pylint2.png). 
+
 &nbsp;
 
 <b>5. Clean Code Development</b>
 
 please check out [CCC.md](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/CCC.md) for details.
+
 &nbsp;
 
 <b>6. Build Management</b>
@@ -93,6 +97,7 @@ Python is an interpreted language, nothing needs to be compiled so a build manag
 Nonetheless for this project pyBuilder was installed. Unfortunately after a successful installation the build process [failed](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/buildManagement/pyBuilder.png). It seems to be stuck in some sort of directory creation loop, and with a rather small community and the last update more than 3 months ago, I was not able to find a solution. 
 
 So instead of relying on on pyBuilder, I choose to use Github Action for continuously integrated [building and testing](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/buildManagement/actionYAML.png) management. 
+
 &nbsp;
 
 <b>7. Unit-Test</b>
@@ -102,6 +107,7 @@ Pytest was used for unit testing purpose. I have build a [simple test](https://g
 Both test [have passed](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/unitTest/unitTest.png) locally without any issue. 
 
 After setting up secrets in Github Action as a environment variable, testing in the Github Action pipeline was also [successful](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/unitTest/ActionTest.png). 
+
 &nbsp;
 
 <b>8. Continuous Delivery</b>
@@ -150,6 +156,8 @@ For this project apart from a few basic functions for cleaning and aggregating d
 * [`analyze_sentiment()`](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L69-L74) is a higher order function since it takes two other functions function(`clean_chat_log, sentiment_task`) as parameters and returns the function `sentiment_task` as return value.
 
 * [`remove_backslash()`](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L76-L80) uses an anonymous lambda function.
+
+&nbsp;
 
 ## Technology
 * Python 3.8
