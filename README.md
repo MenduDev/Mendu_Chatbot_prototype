@@ -122,19 +122,20 @@ Additionally, the entire interface for the chatbot was also based a domain speci
 [analyze_sentiment()](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L79-L74) is a higher order function since it takes two other functions function(`clean_chat_log, sentiment_task`) as parameters and returns the function `sentiment_task` as return value.
 [remove_backslash()](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L76-L80) uses an anonymous lambda function.
 
-## Technology\
+## Technology
 Python 3.8
 Jupyter Notebook for data gathering, data wrangling and fine-tuning upload \
 PyTube for video scrapping, OpenAI Whisper for transcribing \
-large language models:\
+large language models: \
 ** Language generation(decoder based model): OpenAI GPT3 \
 ** Language summarization and sentiment analysis(encoder based model): Huggingface Transformers, bert based models\
 StreamLit as a web app interface\
 
-## Setup\
+## Setup
 access the demo version at https://huggingface.co/spaces/lsacy/mentalChat \
 Running the code on a local machine: \
 register and load a custom [OpenAI](www.openai.com) api key, insert the key at line 7 in streamlit_app.py -> openai.api_key = 'your-api-key'
+
 	install dependencies:
 	```
 			  (yourEnv) ~/dir_to_the_chatbot pip install -r requirements.txt
