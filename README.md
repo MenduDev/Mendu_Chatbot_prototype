@@ -57,7 +57,7 @@ if more than one people working on the same repository, branches are useful to c
 	  git merge <newBranch> #to merge main with files from branch <newBranch>
 	  git branch -d <newBranch> #to delete the branch <newBranch>
 ``` 
-\
+<br/>
 <b>2. UML</b>
 
 Using PlantUML and LucidChart:  
@@ -65,12 +65,12 @@ Using PlantUML and LucidChart:
 * [flowDiagram](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/uml/flowDiagram.png)
 * [sequenceDiagrame](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/uml/sequence.png)
 
-\
+<br/>
 
 <b>3. DDD</b>
 
 [DDD](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/ddd/ddd.png) - Dividing the into 3 domains: Core, Support and Miscellaneous. Core Domain are the core functionality perceived by the user. Support domains contains the functions which enable the core functionalities and miscellaneous domain made of subjects, which are required for an operating company.  
-\
+<br/>
 
 <b>4. Metrics</b>
 
@@ -80,12 +80,12 @@ For Sonarcube the .vscode extension [SonarLint](https://github.com/Lsacy/mentalH
 When integrated with SonarCloud, automatic quality testing was also done when [merging two branches](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/CICD/githubActionPullRequest.png)
 
 Additionally PyLint was used to further checking up the code. Even though Sonarcube didn't find any inconsistencies, PyLint was able to find [small issues](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/metrics/pylint1.png), which got solved after a [few iterations](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/metrics/pylint2.png). 
-\
+<br/>
 
 <b>5. Clean Code Development</b>
 
 please check out [CCC.md](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/CCC.md) for details.
-\
+<br/>
 
 <b>6. Build Management</b>
 
@@ -93,14 +93,14 @@ Python is an interpreted language, nothing needs to be compiled so a build manag
 Nonetheless for this project pyBuilder was installed. Unfortunately after a successful installation the build process [failed](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/buildManagement/pyBuilder.png). It seems to be stuck in some sort of directory creation loop, and with a rather small community and the last update more than 3 months ago, I was not able to find a solution. 
 
 So instead of relying on on pyBuilder, I choose to use Github Action for continuously integrated [building and testing](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/buildManagement/actionYAML.png) management. 
-\
+<br/>
 
 <b>7. Unit-Test</b>
 
 Pytest was used for unit testing purpose. I have build a [simple test](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/test_sample.py) to test two different functions. / Both test [have passed](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/unitTest/unitTest.png) locally without any issue. 
 
 After setting up secrets in Github Action as a environment variable, testing in the Github Action pipeline was also [successful](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/unitTest/ActionTest.png). 
-\
+<br/>
 
 <b>8. Continuous Delivery</b>
 Github Action is used for this project. Compared to Jenkins there is no need to setup for a local server, which saves resources. Besides, Github Action has a big community with many pipeline templates to choose from. Since I already extensively use Github, using Github Action for CI/CD was the reasonable thing to do. 
@@ -108,7 +108,7 @@ Github Action is used for this project. Compared to Jenkins there is no need to 
 For demonstration purpose, a test branch with a pull request was created and [successfully merged](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/CICD/githubActionPullRequest.png). 
 
 Next, a [YAML file](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/buildManagement/actionYAML.png) was created for the continuous delivery pipeline. The file states that each time on push or pull_request the pipeline will be restarted. First a ubuntu-latest server with python 3.8 got setup, then all dependencies will be installed, Lint test with flake8 will be executed and finally testing with pytest (with the openAI api key as a secret)will be conducted. The entire [pipeline](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/CICD/BUILD_TEST.png) was successful.
-\
+<br/>
 
 <b>9. IDE-shortcut</b>
 
@@ -123,7 +123,7 @@ while in Jupyter Notebook mode:
 * `a/b`: add a new block above/below current block
 * `SHIFT + ENTER`: Run current block, jump to the next block
 * `dd`: delete current block 
-\
+<br/>
 
 <b>10. DSL Demo</b>
 
@@ -132,7 +132,7 @@ For this project apart from a few basic functions for cleaning and aggregating d
 * For example the usage of hugginface.co transformers library greatly reduced the amount of coding working and made it possible to use strong performing language models. [example](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L10-L13) 
 * The same applies to the openai package for text generation. [example](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L32-L43) 
 * Additionally, the entire interface for the chatbot was also based a domain specific package (Streamlit), which is heavily used by data scientists. Code example can be found [here](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/streamlit_app.py#L87-L130) 
-\
+<br/>
 
 <b>11. Functional Programming</b>
 
@@ -146,16 +146,16 @@ For this project apart from a few basic functions for cleaning and aggregating d
 
 ## Technology
 * Python 3.8
-* Jupyter Notebook for data gathering, data wrangling and fine-tuning upload \
-* PyTube for video scrapping, OpenAI Whisper for transcribing \
-* LLM - Large Language Models: \
-- Language generation(decoder based model): OpenAI GPT3 \
+* Jupyter Notebook for data gathering, data wrangling and fine-tuning upload 
+* PyTube for video scrapping, OpenAI Whisper for transcribing 
+* LLM - Large Language Models: 
+- Language generation(decoder based model): OpenAI GPT3 
 - Language summarization and sentiment analysis(encoder based model): Huggingface Transformers, bert based models\
-* StreamLit as a web app interface \
+* StreamLit as a web app interface 
 
 ## Setup
-* access the demo version at https://huggingface.co/spaces/lsacy/mentalChat \
-* Running the code on a local machine: \
+* access the demo version at https://huggingface.co/spaces/lsacy/mentalChat 
+* Running the code on a local machine: 
 register and load a custom [OpenAI](www.openai.com) api key, insert the key at line 7 in streamlit_app.py -> openai.api_key = 'your-api-key'
 
 	install dependencies:
