@@ -57,7 +57,8 @@ if more than one people working on the same repository, branches are useful to c
 	  git merge <newBranch> #to merge main with files from branch <newBranch>
 	  git branch -d <newBranch> #to delete the branch <newBranch>
 ``` 
-<br/>
+&nbsp;
+
 <b>2. UML</b>
 
 Using PlantUML and LucidChart:  
@@ -65,12 +66,12 @@ Using PlantUML and LucidChart:
 * [flowDiagram](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/uml/flowDiagram.png)
 * [sequenceDiagrame](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/uml/sequence.png)
 
-<br/>
+&nbsp;
 
 <b>3. DDD</b>
 
 [DDD](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/ddd/ddd.png) - Dividing the into 3 domains: Core, Support and Miscellaneous. Core Domain are the core functionality perceived by the user. Support domains contains the functions which enable the core functionalities and miscellaneous domain made of subjects, which are required for an operating company.  
-<br/>
+&nbsp;
 
 <b>4. Metrics</b>
 
@@ -97,7 +98,9 @@ So instead of relying on on pyBuilder, I choose to use Github Action for continu
 
 <b>7. Unit-Test</b>
 
-Pytest was used for unit testing purpose. I have build a [simple test](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/test_sample.py) to test two different functions. / Both test [have passed](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/unitTest/unitTest.png) locally without any issue. 
+Pytest was used for unit testing purpose. I have build a [simple test](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/test_sample.py) to test two different functions.
+
+Both test [have passed](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/unitTest/unitTest.png) locally without any issue. 
 
 After setting up secrets in Github Action as a environment variable, testing in the Github Action pipeline was also [successful](https://github.com/Lsacy/mentalHealth_Chatbot/blob/main/unitTest/ActionTest.png). 
 <br/>
