@@ -3,14 +3,16 @@ import openai
 import streamlit as st
 from streamlit_chat import message
 from transformers import pipeline
-
+import os 
+from dotenv import load_dotenv
+load_dotenv()
 
 summarizer = pipeline("summarization", model="philschmid/bart-large-cnn-samsum")
 sentiment_task = pipeline("sentiment-analysis",
                             model='cardiffnlp/twitter-roberta-base-sentiment-latest',
                             tokenizer='cardiffnlp/twitter-roberta-base-sentiment-latest')
 
-openai.api_key = st.secrets["openai_api_key"]
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 completion = openai.Completion()
 
@@ -22,7 +24,7 @@ START_SEQUENCE = "\nJoy:"
 RESTART_SEQUENCE = "\n\nPatient:"
 
 def ask(question: str, chat_log: str, model='text-davinci-003', temp=0.9) -> (str, str):
-    ''' funtion takes a input string and the preview chat_log, 
+    ''' funtion takes a input string and the preview chat_log,
         returns the model's repsonse/answer and the dialog
         by using the preview chat_log, gold fish memory effect can be prevented,
         the chat_log is used to summarize and analyze the sentiment of the user's input '''
