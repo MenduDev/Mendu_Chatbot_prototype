@@ -45,7 +45,9 @@ def ask(question: str, chat_log: str, model='text-davinci-003', temp=0.9) -> (st
     return str(answer), str(log)
 
 def clean_chat_log(chat_log: list) -> str:
-    ''' cleans the chat log to be used for summarization and sentiment analysis '''
+    ''' cleans the chat log by joining list items, 
+    removing everything before the first \n and replace all other 
+    \n with empty space.'''
 
     chat_log = ' '.join(chat_log)
     # find the first /n
