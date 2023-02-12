@@ -13,10 +13,10 @@ Personal Clean Code Cheat Sheet (Leonhard Liu):
 
 Demonstration of usage with my own code:
 
-1. meaningful variable names: chat_log, api_key, question etc.
+1. meaningful variable names: chat_log, api_key, question etc. 
 2. short function which do one thing: the remove_backslash() function is short.
    It only removes backslash in a list of strings.
 3. Use doctrings: Every function has its own docstring.
-4. Avoid deeply nested loops and conditionals: in my jupyter notebooks for data wrangling, 
-   list comprehensions are ubiqutously instead of for loops
+4. Avoid deeply nested loops and conditionals: There is no deeply nested loops.
+   In my jupyter notebooks for data wrangling, list comprehensions are often used.
 5. write unit test: unit testing has been written and executed.
