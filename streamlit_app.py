@@ -82,7 +82,7 @@ def remove_backslash(chat_log: list) -> list:
 
 
 def main():
-    ''' main function '''
+    """ main function for the chatbot. """
 
     st.title("Chat with Joy - the AI therapist!")
     col1, col2 = st.columns(2)
