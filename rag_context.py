@@ -1,7 +1,5 @@
 import pandas as pd
 import faiss
-import numpy as np
-from numpy.linalg import norm
 from transformers import AutoModel
 
 user_name = 'Jill'
@@ -11,7 +9,7 @@ embedding_model_name = 'jinaai/jina-embeddings-v2-small-en'
 embedding_model = AutoModel.from_pretrained(embedding_model_name, trust_remote_code=True)
 
 def save_embeddings(data, embedding_model):
-    '''Save the embeddings to disk'''
+    """Save the embeddings to disk."""
     # cos_sim = lambda a,b: (a @ b.T) / (norm(a)*norm(b))
     # tokenizer = AutoTokenizer.from_pretrained(embedding_model)
     model = AutoModel.from_pretrained(embedding_model, trust_remote_code=True) # trust_remote_code is needed to use the encode method
@@ -24,7 +22,7 @@ def save_embeddings(data, embedding_model):
     return faiss.write_index(index, "embeddings.index") 
 
 def load_data(guideline_path, past_conversation_path, user_name):
-    '''Load the guideline and past conversation'''
+    """Load the guideline and past conversation."""
     ## Load the general guideline from a.csv file
     qa_df = pd.read_csv(guideline_path)
 

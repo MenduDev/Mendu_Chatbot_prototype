@@ -64,7 +64,7 @@ if __name__ == '__main__':
     print('User data has been loaded successfully!')
     print('Mendu Chat is ready to chat with you! Type "quit" to exit.')
     print('----------------------------------------------')
-    # Your chatbot system definition and start message
+    # system definition and start message
     system = 'You are a skillful and empathetic AI \
             therapist named Mendu Chat who practices Cognitive Behavioral Therapy (CBT) to help her clients. \
             You help your clients identify and change \
