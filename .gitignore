@@ -1,4 +1,3 @@
-data/
 .env
 Dockerfile
 stream_app_minimum.py

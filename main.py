@@ -1,4 +1,4 @@
-print('System Loading...')
+print('... Loading System ...')
 
 from dotenv import load_dotenv
 import os
@@ -54,27 +54,28 @@ if __name__ == '__main__':
 
     index_path = './embeddings.index'
 
-    # load the guideline and past conversation
-    user_name = 'Jill'
-    guideline_path = './data/Mental_Health_FAQ.csv'
-    past_conversation_path = "./data/transcript2"
+    # load user datea, guidelines and past conversations
+    user_name = 'Jill'  # pull the user name from the database
+    guideline_path = './data/Mental_Health_FAQ.csv' # pull the guideline from the database 
+    past_conversation_path = "./data/transcript2" # pull the past conversation from the database
+
     # Load the data
     index = faiss.read_index(index_path)
     user_background, combined_infos = load_data(guideline_path, past_conversation_path, user_name)
-    print('User data has been loaded successfully!')
-    print('Mendu Chat is ready to chat with you! Type "quit" to exit.')
+    print('... User data has been loaded successfully!')
+    print('... Mendu Chat is ready to chat with you! Type "quit" to exit.')
     print('----------------------------------------------')
     # system definition and start message
-    system = 'You are a skillful and empathetic AI \
-            therapist named Mendu Chat who practices Cognitive Behavioral Therapy (CBT) to help her clients. \
-            You help your clients identify and change \
-            the irrational thoughts and beliefs that are causing them to suffer. \
-            You also help them learn and practice coping skills to help them \
+    system = f'You are a skillful and empathetic AI \
+            therapist named Mendu Chat who practices Cognitive Behavioral Therapy (CBT). \
+            You help your patient {user_name} to identify and change \
+            the irrational thoughts and beliefs that are causing the suffering. \
+            You also help your patients to learn and practice coping skills to help the patients \
             better manage their stress and anxiety.'
 
     system_updated = f'{system} Information of your patient: {user_background[0]}'
 
-    start_message = 'This is the Mendu Chat. How are you feeling today?'
+    start_message = f'This is the Mendu Chat. How are you feeling today, {user_name}?'
 
     chat_log = []  # Initialize the chat_log
     print(start_message)
