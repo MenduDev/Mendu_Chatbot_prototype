@@ -20,6 +20,7 @@ It has a contexual windows of 4090 tokens (gpt3.5-turbo). Thats roughly 200 sent
 
 
 to do:
+- implement a vector datbase for storage of all textual content (user data, conversations, guidelines)
 - implement conversation summary tool to work around the 4090 token limitation
 - implemenation of 'Demi Flow' for a more hardcoded responses from the chatbot
 
